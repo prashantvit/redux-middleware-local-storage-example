@@ -4,7 +4,7 @@ const localStorageMiddleware = store => next => action => {
 };
 
 export const run = () => {
-  return JSON.parse(sessionStorage.getItem("store"));
+  return JSON.parse(sessionStorage.getItem("store")) || undefined;
 };
 
 export default localStorageMiddleware;
