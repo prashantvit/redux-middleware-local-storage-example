@@ -3,7 +3,13 @@ const localStorageMiddleware = store => next => action => {
   sessionStorage.setItem("store", JSON.stringify(store.getState()));
 };
 
-export const initializeState = () => {
-  return JSON.parse(sessionStorage.getItem("store")) || undefined;
+export const applyLocalStorage = (reducer, enhancer) => {
+  const store = JSON.parse(sessionStorage.getItem("store")) || undefined;
+  const storeParams = [reducer];
+  if (store) {
+    storeParams.push(store);
+  }
+  storeParams.push(enhancer);
+  return storeParams;
 };
 export default localStorageMiddleware;
