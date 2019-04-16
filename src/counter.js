@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => {
     {
       increment: actions.increment,
       decrement: actions.decrement,
-      incrementAsync: actions.incrementAfter5Seconds
+      incrementAsync: actions.incrementAsync
     },
     dispatch
   );
