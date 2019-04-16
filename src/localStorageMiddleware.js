@@ -3,8 +3,7 @@ const localStorageMiddleware = store => next => action => {
   sessionStorage.setItem("store", JSON.stringify(store.getState()));
 };
 
-export const run = () => {
+export const initializeState = () => {
   return JSON.parse(sessionStorage.getItem("store")) || undefined;
 };
-
 export default localStorageMiddleware;
