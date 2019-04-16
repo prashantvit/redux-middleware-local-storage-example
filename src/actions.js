@@ -4,7 +4,7 @@ export const incrementAfter5Seconds = () => ({
   type: INCREMENT_ASYNC,
   payload: new Promise(resolve => {
     setTimeout(() => {
-      resolve(1);
+      resolve();
     }, 2000);
   })
 });

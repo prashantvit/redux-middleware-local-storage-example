@@ -9,8 +9,8 @@ export const Counter = props => {
     <React.Fragment>
       <div> Counter value - {counter}</div>
       <button onClick={increment}> Increment</button>
-      <button onClick={incrementAsync}> Increment Asynchornously</button>
       <button onClick={decrement}> Decrement</button>
+      <button onClick={incrementAsync}> Increment Asynchornously</button>
     </React.Fragment>
   );
 };
