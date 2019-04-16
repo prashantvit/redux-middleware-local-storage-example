@@ -4,11 +4,12 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 export const Counter = props => {
-  const { counter, increment, decrement } = props;
+  const { counter, increment, decrement, incrementAsync } = props;
   return (
     <React.Fragment>
       <div> Counter value - {counter}</div>
       <button onClick={increment}> Increment</button>
+      <button onClick={incrementAsync}> Increment Asynchornously</button>
       <button onClick={decrement}> Decrement</button>
     </React.Fragment>
   );
@@ -22,7 +23,8 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       increment: actions.increment,
-      decrement: actions.decrement
+      decrement: actions.decrement,
+      incrementAsync: actions.incrementAfter5Seconds
     },
     dispatch
   );

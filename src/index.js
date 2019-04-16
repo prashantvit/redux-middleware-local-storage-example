@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import promiseMidlleware from "redux-promise-middleware";
 import Counter from "./counter";
 import reducer from "./reducer";
 import "./styles.css";
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(promiseMidlleware));
 function App() {
   return (
     <Provider store={store}>

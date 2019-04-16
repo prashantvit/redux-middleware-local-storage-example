@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from "./types";
+import { INCREMENT, DECREMENT, INCREMENT_ASYNC } from "./types";
 
 const initialState = {
   counter: 0
@@ -15,6 +15,11 @@ const counterReducer = (state = initialState, action) => {
       return {
         ...state,
         counter: state.counter - 1
+      };
+    case `${INCREMENT_ASYNC}_FULFILLED`:
+      return {
+        ...state,
+        counter: state.counter + 1
       };
     default:
       return state;
