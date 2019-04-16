@@ -4,15 +4,19 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import promiseMidlleware from "redux-promise-middleware";
-import localStorageMiddleware, { run } from "./localStorageMiddleware";
+import localStorageMiddleware, {
+  initializeState
+} from "./localStorageMiddleware";
 import Counter from "./counter";
 import reducer from "./reducer";
 import "./styles.css";
-const store = createStore(
+const initialState = initializeState();
+const storeParams = [
   reducer,
-  run(),
+  initializeState(),
   applyMiddleware(promiseMidlleware, localStorageMiddleware)
-);
+];
+const store = createStore(...storeParams.filter(item => item));
 function App() {
   return (
     <Provider store={store}>
