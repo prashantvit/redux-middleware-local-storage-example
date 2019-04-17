@@ -4,14 +4,12 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import promiseMidlleware from "redux-promise-middleware";
-import localStorageMiddleware, {
-  applyLocalStorage
-} from "./localStorageMiddleware";
+import localStorageMiddleware, { applySession } from "./sessionMiddleware";
 import Counter from "./counter";
 import reducer from "./reducer";
 import "./styles.css";
 const store = createStore(
-  ...applyLocalStorage(
+  ...applySession(
     reducer,
     applyMiddleware(promiseMidlleware, localStorageMiddleware)
   )
